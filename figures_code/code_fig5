@@ -1,0 +1,39 @@
+#code to generate Figure 5
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Dataset names
+datasets = [
+    "BrATS (2018–2021)", "Kaggle", "Local", "Figshare", "Private",
+    "PPMI-ADNI", "Breast DCE-MRI", "IXI/CAU", "BT-large", "TCIA",
+    "CE-MRI", "LITS17", "ADNI/S-PMRI", "Cheng"
+]
+
+# Counts associated with each dataset
+counts = [6, 3, 3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1]
+
+# Sort in descending order
+counts, datasets = zip(*sorted(zip(counts, datasets), reverse=True))
+
+# Color gradient using a colormap
+cmap = plt.cm.viridis
+colors = cmap(np.linspace(0.05, 0.85, len(datasets)))
+
+plt.figure(figsize=(12, 4))
+
+plt.bar(datasets, counts, color=colors)
+
+plt.ylabel("Count", fontsize=12)
+plt.xlabel("Dataset", fontsize=12)
+
+plt.xticks(rotation=75, ha="right", fontsize=10)
+plt.ylim(0, max(counts) + 1)
+
+plt.grid(axis='y', linestyle='--', alpha=0.3)
+
+plt.tight_layout()
+
+# Save as PNG
+plt.savefig("dataset_frequency.png", dpi=300)
+plt.show()
