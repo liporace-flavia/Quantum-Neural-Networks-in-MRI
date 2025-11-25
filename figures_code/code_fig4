@@ -1,0 +1,44 @@
+#code to generate Figure 4
+
+import matplotlib.pyplot as plt
+
+# Labels
+labels = [
+    "Quantum Convolutional Networks",
+    "Quantum-Inspired Models / Optimizers",
+    "Variational Quantum Circuits",
+    "Quantum-Classical Transfer Learning",
+    "Polynomial-based / Custom Architectures"
+]
+
+# Values
+sizes = [40, 25, 20, 10, 5]
+
+# Colors (similar to your image)
+colors = [
+    "#ffcc99",  # light orange
+    "#99e699",  # light green
+    "#ff9999",  # light red
+    "#99c2ff",  # light blue
+    "#c7a0e0"   # light violet
+]
+
+plt.figure(figsize=(10, 4))
+
+# Create pie chart
+plt.pie(
+    sizes,
+    labels=labels,
+    colors=colors,
+    autopct="%.1f%%",
+    startangle=140,
+    textprops={"fontsize": 11}
+)
+
+plt.axis("equal")  # Equal aspect ratio for circular pie
+plt.tight_layout()
+
+# Save as PNG
+plt.savefig("qnn_piechart.png", dpi=300)
+plt.show()
+
