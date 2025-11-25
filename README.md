@@ -43,4 +43,4 @@ Researchers can examine the scoring framework, reproduce the visualizations, or 
 All data and scripts supporting this work are publicly available.  
 A DOI has been assigned to this repository for reproducibility purposes:
 
-**DOI:**  DOI: 10.5281/zenodo.17713514
+**DOI:**  https://doi.org/10.5281/zenodo.17713514
