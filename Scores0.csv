@@ -1,0 +1,10 @@
+Criterion,0 = Not addressed,1 = Partially addressed,2 = Fully addressed
+1. Source code availability ,No code available or no mention of code.,Partial availability (scripts incomplete or without instructions).,Full public repository with all scripts and documentation.
+2. Validation type and rigor,No validation performed or not described.,Internal validation only, details incomplete.,Internal validation fully described and/or external validation.
+3. Reproducibility of the experimental setup,Methods insufficiently described.,Some key elements described but incomplete.,Full description enabling complete reproducibility.
+4. Hardware specification,No hardware information.,Hardware mentioned but incomplete.,Full specification of simulator or QPU (backend, shots, noise model).
+5. Dataset availability and benchmark use,Dataset not described or proprietary.,Dataset described but not publicly accessible.,Use of public datasets and/or recognized benchmarks.
+6. Clinical relevance,No clinical motivation.,Clinical motivation present but not clearly linked.,Clear clinical objective aligned with MRI practice.
+7. Justification for quantum approach,No justification for QNN usage.,General justification without technical detail.,Clear and technical rationale for QNN  choice.
+8. Reporting of performance metrics,Metrics missing or insufficient.,Metrics reported but incomplete.,Multiple and well-defined metrics consistenlty reported.
+9. Overall methodological contribution,Minimal novelty.,Some contribution but limited.,Clear methodological innovation advancing QNN-MRI research.
