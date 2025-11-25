@@ -1,0 +1,110 @@
+#code to generate Figure 6
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# List of all studies that appear in the panels
+all_studies = [
+    "Study 1", "Study 2", "Study 4", "Study 5", "Study 6",
+    "Study 8", "Study 9", "Study 12", "Study 13", "Study 14",
+    "Study 15", "Study 16", "Study 19", "Study 20"
+]
+
+# Color assigned to each study (consistent across all panels)
+cmap = plt.cm.tab20
+colors = {s: cmap(i / len(all_studies)) for i, s in enumerate(all_studies)}
+
+# ---- EXAMPLE DATA (replace with your real values) ----
+# Each dict entry: "Study X": (score, metric_value)
+
+data_accuracy = {
+    "Study 1":  (6,  58.0),
+    "Study 2":  (8,  93.0),
+    "Study 4":  (11, 98.5),
+    "Study 5":  (18, 99.5),
+    "Study 6":  (14, 82.0),
+    "Study 8":  (15, 96.0),
+    "Study 9":  (17, 100.0),
+    "Study 12": (12, 98.0),
+    "Study 13": (14, 96.5),
+    "Study 14": (16, 99.0),
+    "Study 15": (18, 99.0),
+    "Study 16": (13, 97.0),
+    "Study 19": (6,  59.0),
+    "Study 20": (12, 99.0),
+}
+
+data_sensitivity = {
+    "Study 2":  (14, 75.0),
+    "Study 4":  (12, 85.0),
+    "Study 5":  (8,  93.0),
+    "Study 6":  (17, 97.0),
+    "Study 8":  (16, 96.0),
+    "Study 9":  (17, 99.0),
+    "Study 12": (11, 100.0),
+    "Study 13": (14, 97.0),
+    "Study 14": (18, 99.5),
+    "Study 15": (18, 96.0),
+    "Study 16": (10, 99.0),
+    "Study 20": (18, 98.5),
+}
+
+data_specificity = {
+    "Study 1":  (18, 96.7),
+    "Study 4":  (12, 97.0),
+    "Study 8":  (17, 99.0),
+    "Study 9":  (15, 97.8),
+    "Study 16": (11, 97.4),
+    "Study 20": (17, 99.6),
+}
+
+data_precision = {
+    "Study 2":  (11, 72.5),
+    "Study 4":  (12, 88.0),
+    "Study 5":  (8,  91.5),
+    "Study 6":  (14, 75.0),
+    "Study 8":  (16, 92.0),
+    "Study 9":  (17, 100.0),
+    "Study 12": (13, 98.0),
+    "Study 13": (15, 97.0),
+    "Study 14": (17, 99.0),
+    "Study 15": (18, 75.0),
+    "Study 16": (11, 72.0),
+    "Study 20": (18, 100.0),
+}
+
+# ------------------------------------------------------
+
+def plot_panel(ax, data, ylabel, panel_label):
+    for study, (score, value) in data.items():
+        ax.scatter(score, value, color=colors[study], label=study, marker='x')
+
+    ax.set_xlabel("Score")
+    ax.set_ylabel(ylabel)
+    ax.grid(True, linestyle="--", alpha=0.3)
+
+    # Panel label, e.g. (a), (b), ...
+    ax.text(0.02, 0.98, f"({panel_label})",
+            transform=ax.transAxes,
+            ha="left", va="top",
+            fontsize=12, fontweight="bold")
+
+    handles, labels = ax.get_legend_handles_labels()
+    by_label = dict(zip(labels, handles))
+    ax.legend(by_label.values(), by_label.keys(),
+              title="Study", fontsize=7, title_fontsize=8,
+              loc="center left")
+
+
+fig, axes = plt.subplots(2, 2, figsize=(12, 8))
+
+plot_panel(axes[0, 0], data_accuracy,   "Accuracy",   "a")
+plot_panel(axes[0, 1], data_sensitivity,"Sensitivity","b")
+plot_panel(axes[1, 0], data_specificity,"Specificity","c")
+plot_panel(axes[1, 1], data_precision,  "Precision",  "d")
+
+plt.tight_layout()
+
+# Save as PNG
+plt.savefig("metrics_vs_score_panels.png", dpi=300)
+plt.show()
