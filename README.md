@@ -38,3 +38,9 @@ These files are intentionally lightweight to ensure reusability and clarity
 The goal of this repository is to provide full reproducibility by making all the artefacts publicly accessible.
 Researchers can examine the scoring framework, reproduce the visualizations, or adapt the scripts for future QNN-MRI studies.
 
+# Data Availability / Reproducibility
+
+All data and scripts supporting this work are publicly available.  
+A DOI has been assigned to this repository for reproducibility purposes:
+
+**DOI:**  DOI: 10.5281/zenodo.17713514
