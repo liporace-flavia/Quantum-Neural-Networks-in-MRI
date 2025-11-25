@@ -7,7 +7,7 @@ It provides the materials required to support transparency, reproducibility and 
 This work explores the application of Quantum Neural Networks (QNNs) in the field of Magnetic Resonance Imaging (MRI).
 By combining quantum computing with artificial intelligence, QNNs offer promising strategies for handling the high-dimensional and complex nature of MRI data. These models have the potential to improve feature extraction, accelerate optimization processes and support emerging applications in clinical imaging.
 
-To understand the current landscape, the review systematically examined research indexed in Scopus and PubMed. From an initial set of 61 studies, 20 peer-reviewed original research articles were analyzed in depth. The review compared their datasets, architectures, hardware, tasks and performance metrics, highlighting both promising results and key limitations—including the reliance on simulators, limited quantum hardware accessibility and heterogeneous datasets.
+To understand the current landscape, the review systematically examined research indexed in Scopus and PubMed. From an initial set of 84 studies, 20 peer-reviewed original research articles were analyzed in depth. The review compared their datasets, architectures, hardware, tasks and performance metrics, highlighting both promising results and key limitations—including the reliance on simulators, limited quantum hardware accessibility and heterogeneous datasets.
 
 # Contents of This Repository
 
