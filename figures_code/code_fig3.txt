@@ -1,0 +1,41 @@
+#code to generate Figure 3
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Study labels
+studies = [
+    "Study 11", "Study 13", "Study 20", "Study 4", "Study 9", "Study 16",
+    "Study 12", "Study 7", "Study 17", "Study 8", "Study 3", "Study 14",
+    "Study 2", "Study 6", "Study 10", "Study 18", "Study 5", "Study 15",
+    "Study 19", "Study 1"
+]
+
+# Corresponding scores
+scores = [
+    18.5, 18.2, 18.0, 17.0, 16.8, 16.7,
+    17.2, 15.0, 15.0, 14.0, 14.0, 14.0,
+    12.0, 11.5, 10.0, 10.0, 9.0, 9.0,
+    9.0, 8.5
+]
+
+# Sort in descending order
+scores, studies = zip(*sorted(zip(scores, studies), reverse=True))
+
+# Colormap
+cmap = plt.cm.magma
+colors = cmap(np.linspace(0.15, 0.85, len(studies)))
+
+plt.figure(figsize=(12, 4))
+plt.bar(studies, scores, color=colors)
+
+plt.ylabel("Score", fontsize=12)
+plt.xticks(rotation=75, ha="right", fontsize=10)
+plt.ylim(0, 20)
+
+plt.grid(axis='y', linestyle='--', alpha=0.3)
+plt.tight_layout()
+
+# Save as PNG
+plt.savefig("metrics_scores.png", dpi=300)
+plt.show()
